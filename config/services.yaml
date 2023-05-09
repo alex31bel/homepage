@@ -1,0 +1,61 @@
+- Core:
+    - Proxmox:
+        icon: proxmox-light.png
+        href: https://192.168.88.88:8006/
+        widget:
+          type: proxmox
+          fields: ["vms", "lxc", "resources.cpu", "resources.mem"]
+          url: https://192.168.88.88:8006
+          username: api@pam!homepage
+          password: 4afd0937-9297-4050-a82f-bdf9c7bcb25e
+    - Portainer:
+        icon: portainer.png
+        href: https://192.168.88.180:9443/
+        server: local
+        container: portainer
+        widget:
+          type: portainer
+          fields: ["running", "stopped", "total"]
+          url: https://192.168.88.180:9443
+          env: 2
+          key: ptr_kozesy2W0/Dh+UAJ54GRYtzpxU02ARkw9aJ7JFL5L0I=
+    - OpenMediaVault:
+        icon: openmediavault.png
+        href: http://192.168.88.89/
+        ping: http://192.168.88.89/
+- Media:
+    - Emby:
+      icon: emby.png
+      href: http://192.168.88.180:8096/
+      server: local
+      container: emby
+      widget:
+          type: emby
+          fields: ["movies", "series", "episodes", "songs"]
+          url: http://192.168.88.180:8096/
+          key: f694258895264f479e525aa5deb12bd9
+    - qBittorrent:
+        icon: qbittorrent.png
+        href": http://192.168.88.180:8080/
+        server: local
+        container: qbittorrent
+        widget:
+          type: qbittorrent
+          fields: ["leech", "download", "seed", "upload"]
+          url: http://192.168.88.180:8080/
+          username: admin
+          password: 123123123
+    - File Browser:
+        icon: filebrowser.png
+        href: http://192.168.88.180:8082/
+        description: /mnt/omv-torrent/
+        server: local
+        container: filebrowser
+- Media:
+    - Coin Market Cap
+      icon: bitcoin.png
+      widget:
+        type: coinmarketcap
+        currency: USD # Optional
+        symbols: [BTC, UPX, BTT, STORJ]
+        key: eb74f8e6-b448-4abd-89d2-ee7d274201c3
