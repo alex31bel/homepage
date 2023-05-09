@@ -53,9 +53,9 @@
         container: filebrowser
 - Media:
     - Coin Market Cap
-      icon: bitcoin.png
-      widget:
-        type: coinmarketcap
-        currency: USD # Optional
-        symbols: [BTC, UPX, BTT, STORJ]
-        key: eb74f8e6-b448-4abd-89d2-ee7d274201c3
+        icon: bitcoin.png
+        widget:
+          type: coinmarketcap
+          currency: USD # Optional
+          symbols: [BTC, UPX, BTT, STORJ]
+          key: eb74f8e6-b448-4abd-89d2-ee7d274201c3
