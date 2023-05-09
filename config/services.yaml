@@ -1,61 +1,58 @@
 - Core:
     - Proxmox:
         icon: proxmox-light.png
-        href: https://192.168.88.88:8006/
+        href: https://192.168.88.88:8006
         widget:
           type: proxmox
-          fields: ["vms", "lxc", "resources.cpu", "resources.mem"]
           url: https://192.168.88.88:8006
-          username: api@pam!homepage
-          password: 4afd0937-9297-4050-a82f-bdf9c7bcb25e
+          username: {{HOMEPAGE_VAR_PROXMOX_USERNAME}}
+          password: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
     - Portainer:
         icon: portainer.png
-        href: https://192.168.88.180:9443/
-        server: local
+        href: https://192.168.88.180:9443
+        server: docker
         container: portainer
         widget:
           type: portainer
-          fields: ["running", "stopped", "total"]
           url: https://192.168.88.180:9443
           env: 2
-          key: ptr_kozesy2W0/Dh+UAJ54GRYtzpxU02ARkw9aJ7JFL5L0I=
+          key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
     - OpenMediaVault:
         icon: openmediavault.png
-        href: http://192.168.88.89/
-        ping: http://192.168.88.89/
+        href: http://192.168.88.89
+        description: NAS
+        ping: http://192.168.88.89
 - Media:
     - Emby:
-      icon: emby.png
-      href: http://192.168.88.180:8096/
-      server: local
-      container: emby
-      widget:
-          type: emby
-          fields: ["movies", "series", "episodes", "songs"]
-          url: http://192.168.88.180:8096/
-          key: f694258895264f479e525aa5deb12bd9
+        icon: emby.png
+        href: http://192.168.88.180:8096
+        server: docker
+        container: emby
+        widget:
+            type: emby
+            url: http://192.168.88.180:8096
+            key: {{HOMEPAGE_VAR_EMBY_KEY}}
     - qBittorrent:
         icon: qbittorrent.png
-        href": http://192.168.88.180:8080/
-        server: local
+        href: http://192.168.88.180:8080
+        server: docker
         container: qbittorrent
         widget:
           type: qbittorrent
-          fields: ["leech", "download", "seed", "upload"]
-          url: http://192.168.88.180:8080/
-          username: admin
-          password: 123123123
+          url: http://192.168.88.180:8080
+          username: {{HOMEPAGE_VAR_QBITTORRENT_USERNAME}}
+          password: {{HOMEPAGE_VAR_QBITTORRENT_PASSWORD}}
     - File Browser:
         icon: filebrowser.png
-        href: http://192.168.88.180:8082/
-        description: /mnt/omv-torrent/
-        server: local
+        href: http://192.168.88.180:8082
+        description: /mnt/omv-torrent
+        server: docker
         container: filebrowser
-- Media:
-    - Coin Market Cap
+- Coin:
+    - Coin Market Cap:
         icon: bitcoin.png
         widget:
           type: coinmarketcap
           currency: USD # Optional
           symbols: [BTC, UPX, BTT, STORJ]
-          key: eb74f8e6-b448-4abd-89d2-ee7d274201c3
+          key: {{HOMEPAGE_VAR_COINMARKETCAP_KEY}}
