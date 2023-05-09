@@ -3,7 +3,7 @@ services:
   homepage:
     image: ghcr.io/benphelps/homepage:latest
     container_name: homepage
-    Driver: bridge2
+    network_mode: bridge2
     ports:
       - 3030:3000
     volumes:
