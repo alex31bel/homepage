@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  homepage:
+    image: ghcr.io/benphelps/homepage:latest
+    container_name: homepage
+    Driver: bridge2
+    ports:
+      - 3030:3000
+    volumes:
+      - ./config:/app/config 
+      - /var/run/docker.sock:/var/run/docker.sock:ro 
+  dockerproxy:
+    image: ghcr.io/tecnativa/docker-socket-proxy:latest
+    container_name: dockerproxy
+    environment:
+        - CONTAINERS=1 # Разрешить доступ к просмотру контейнеров
+        - POST=0 # Запретить любые операции POST (действительно только для чтения)
+    ports:
+        - 2375:2375
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro # Mounted as read-only
+    restart: unless-stopped
